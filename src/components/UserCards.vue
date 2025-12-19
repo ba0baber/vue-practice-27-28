@@ -1,0 +1,75 @@
+cat > src/components/UserCards.vue << 'EOF'
+<template>
+  <div>
+    <h2>Список пользователей</h2>
+
+    <UserCard
+      :user="adminUser"
+      :is-active="true"
+      @user-clicked="handleUserClick"
+    >
+      <template #actions>
+        <button @click="editUser(adminUser)">Редактировать</button>
+      </template>
+      <p>Администратор системы</p>
+    </UserCard>
+
+    <UserCard
+      v-for="user in users"
+      :key="user.id"
+      :user="user"
+      @user-clicked="handleUserClick"
+    />
+  </div>
+</template>
+
+<script>
+import UserCard from './UserCard.vue'
+
+export default {
+  components: {
+    UserCard
+  },
+  
+  data() {
+    return {
+      adminUser: {
+        id: 1,
+        name: 'Анна Иванова',
+        email: 'anna@example.com',
+        role: 'admin'
+      },
+      users: [
+        {
+          id: 2,
+          name: 'Петр Сидоров',
+          email: 'petr@example.com',
+          role: 'user'
+        },
+        {
+          id: 3,
+          name: 'Мария Петрова',
+          email: 'maria@example.com',
+          role: 'user'
+        }
+      ]
+    }
+  },
+  
+  methods: {
+    handleUserClick(user) {
+      console.log('Клик по пользователю:', user)
+    },
+    editUser(user) {
+      console.log('Редактирование:', user)
+    }
+  }
+}
+</script>
+
+<style scoped>
+h2 {
+  margin-bottom: 20px;
+}
+</style>
+EOF
