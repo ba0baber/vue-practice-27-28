@@ -1,4 +1,3 @@
-cat > package.json << 'EOF'
 {
   "name": "vue-practice-27-28",
   "version": "0.0.0",
@@ -33,4 +32,3 @@ cat > package.json << 'EOF'
     "vite-plugin-vue-devtools": "^8.0.5"
   }
 }
-EOF

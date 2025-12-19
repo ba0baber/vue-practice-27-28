@@ -1,4 +1,3 @@
-cat > src/components/SearchInput.vue << 'EOF'
 <template>
   <div class="search-container">
     <label v-if="label">{{ label }}</label>
@@ -91,4 +90,3 @@ export default {
   background-color: #0056b3;
 }
 </style>
-EOF
